@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dn1-NH-J51">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CalendarVC-->
+        <scene sceneID="v84-t8-y6h">
+            <objects>
+                <viewController storyboardIdentifier="CalendarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dn1-NH-J51" customClass="CalendarVC" customModule="JobCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fF3-Oa-6oG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89S-ie-HjV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="il3-hR-x6l"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Calendar" id="4Zp-ji-jmO">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; 2015/07" id="ALU-3D-wPX"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="xmT-na-Olk"/>
+                                            <barButtonItem title="Item" image="money_icon128.png" landscapeImage="money_icon128.png" id="212-L5-Eu3"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZR-ts-bL1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7O-1D-Mzx">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="OjO-Bl-0BG" customClass="CalendarCell" customModule="JobCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dn1-NH-J51" id="wjq-pv-HsN"/>
+                                    <outlet property="delegate" destination="Dn1-NH-J51" id="PHJ-f1-pdv"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="89S-ie-HjV" secondAttribute="bottom" id="5u0-SP-LEw"/>
+                            <constraint firstItem="vtH-Qt-SbE" firstAttribute="bottom" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="Hfm-YL-hun"/>
+                            <constraint firstItem="89S-ie-HjV" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="JxA-ul-7ML"/>
+                            <constraint firstItem="89S-ie-HjV" firstAttribute="top" secondItem="vtH-Qt-SbE" secondAttribute="top" id="WWT-PG-KVq"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="fWU-Fk-nXx"/>
+                            <constraint firstItem="89S-ie-HjV" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="rdh-Kp-fB6"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="yxQ-Ul-AgD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vtH-Qt-SbE"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarCollection" destination="xZR-ts-bL1" id="wyA-gH-YNE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-9A-TgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104.8" y="193.85307346326837"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="money_icon128.png" width="42" height="42"/>
+    </resources>
+</document>
