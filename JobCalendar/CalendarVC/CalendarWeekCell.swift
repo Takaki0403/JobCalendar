@@ -10,11 +10,13 @@ import UIKit
 
 class CalendarWeekCell: UICollectionViewCell {
 
+    @IBOutlet weak var backV: UIView!
     @IBOutlet weak var weekLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backV.layer.borderColor = UIColor.black.cgColor
+        self.backV.layer.borderWidth = 0.2
     }
     
     func setupCell(week: String) {

@@ -64,7 +64,7 @@ extension CalendarVC {
         
         let horizonalCount:CGFloat = 7
         let horizonalSpace:CGFloat = self.calendarCollection.frame.width / horizonalCount
-        let weekVerticalSpace: CGFloat = 44
+        let weekVerticalSpace: CGFloat = 22
         if indexPath.section == 0 {
             return CGSize(width: horizonalSpace, height: weekVerticalSpace)
         } else {
