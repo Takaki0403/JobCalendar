@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000E53682183024300A76CD2 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E53672183024300A76CD2 /* DateManager.swift */; };
+		000E536B21830FD600A76CD2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E536A21830FD600A76CD2 /* Enums.swift */; };
+		000E536D218310BD00A76CD2 /* GrobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E536C218310BD00A76CD2 /* GrobalVariables.swift */; };
 		00D359902181E29700C2FB96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3598F2181E29700C2FB96 /* AppDelegate.swift */; };
 		00D359922181E29700C2FB96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359912181E29700C2FB96 /* ViewController.swift */; };
 		00D359952181E29700C2FB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D359932181E29700C2FB96 /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000E53672183024300A76CD2 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		000E536A21830FD600A76CD2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		000E536C218310BD00A76CD2 /* GrobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrobalVariables.swift; sourceTree = "<group>"; };
 		00D3598C2181E29700C2FB96 /* JobCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D3598F2181E29700C2FB96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00D359912181E29700C2FB96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000E536921830FC300A76CD2 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				000E536A21830FD600A76CD2 /* Enums.swift */,
+				000E536C218310BD00A76CD2 /* GrobalVariables.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
 		00D359832181E29700C2FB96 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +128,7 @@
 		00D3598E2181E29700C2FB96 /* JobCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				000E536921830FC300A76CD2 /* Options */,
 				00D359BD2181E68F00C2FB96 /* CalendarVC */,
 				00D3598F2181E29700C2FB96 /* AppDelegate.swift */,
 				00D359912181E29700C2FB96 /* ViewController.swift */,
@@ -152,6 +168,7 @@
 				00D359DA2182044700C2FB96 /* CalendarDaysCell.xib */,
 				00D359DD2182A6CD00C2FB96 /* CalendarWeekCell.swift */,
 				00D359DE2182A6CD00C2FB96 /* CalendarWeekCell.xib */,
+				000E53672183024300A76CD2 /* DateManager.swift */,
 			);
 			path = CalendarVC;
 			sourceTree = "<group>";
@@ -293,7 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000E536D218310BD00A76CD2 /* GrobalVariables.swift in Sources */,
+				000E536B21830FD600A76CD2 /* Enums.swift in Sources */,
 				00D359922181E29700C2FB96 /* ViewController.swift in Sources */,
+				000E53682183024300A76CD2 /* DateManager.swift in Sources */,
 				00D359DB2182044700C2FB96 /* CalendarDaysCell.swift in Sources */,
 				00D359902181E29700C2FB96 /* AppDelegate.swift in Sources */,
 				00D359BF2181E6BB00C2FB96 /* CalendarVC.swift in Sources */,

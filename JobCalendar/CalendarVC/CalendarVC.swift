@@ -1,15 +1,14 @@
 import UIKit
 
-enum CalendarCellName: String {
-    case days = "CalendarDaysCell"
-    case week = "CalendarWeekCell"
-}
-
 class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var calendarCollection: UICollectionView!
     let cellMargin: CGFloat = 0
-    let weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    let daysCellHorizonalCount:CGFloat = 7
+    let daysCellVerticalCount:CGFloat = 5
+    let weekVerticalSpace: CGFloat = 22
+    let presentYear = 2018
+    let presentMonth = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +32,12 @@ extension CalendarVC {
             }
             return weekCell
         } else {
+            let dateManager = DateManager()
+            let daysInMonth = dateManager.mkDaysInMonth(year: self.presentYear, month: self.presentMonth)
             let daysCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.days.rawValue, for: indexPath)
             if let daysCell = daysCell as? CalendarDaysCell {
-                daysCell.setupCell(date: "\(indexPath.row)")
+                daysCell.dateLabel.text = String(daysInMonth[indexPath.row])
             }
             return daysCell
         }
@@ -50,9 +51,9 @@ extension CalendarVC {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return self.weeks.count
+            return weeks.count
         } else {
-            return 35
+            return Int(daysCellHorizonalCount * daysCellVerticalCount)
         }
     }
     
@@ -62,14 +63,11 @@ extension CalendarVC {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let horizonalCount:CGFloat = 7
-        let horizonalSpace:CGFloat = self.calendarCollection.frame.width / horizonalCount
-        let weekVerticalSpace: CGFloat = 22
+        let horizonalSpace:CGFloat = self.calendarCollection.frame.width / daysCellHorizonalCount
         if indexPath.section == 0 {
             return CGSize(width: horizonalSpace, height: weekVerticalSpace)
         } else {
-            let verticalCount:CGFloat = 5
-            let verticalSpace:CGFloat = (self.calendarCollection.frame.height - weekVerticalSpace) / verticalCount
+            let verticalSpace:CGFloat = (self.calendarCollection.frame.height - weekVerticalSpace) / daysCellVerticalCount
             return CGSize(width: horizonalSpace, height: verticalSpace)
         }
     }
