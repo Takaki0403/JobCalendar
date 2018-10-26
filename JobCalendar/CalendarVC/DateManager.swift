@@ -33,7 +33,7 @@ class DateManager: NSObject {
         }
         let firstWeekInMonth = self.getFirstWeekInMonth(year: year, month: month)
         for dayOfLastMonth in 1...firstWeekInMonth {
-            daysInMonth.append(dayCountInLastMonth + dayOfLastMonth)
+            daysInMonth.append(dayCountInLastMonth - firstWeekInMonth + dayOfLastMonth)
         }
         
         for day in 1...dayCountInMonth {

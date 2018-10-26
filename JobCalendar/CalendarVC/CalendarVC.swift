@@ -7,8 +7,8 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
     let daysCellHorizonalCount:CGFloat = 7
     let daysCellVerticalCount:CGFloat = 5
     let weekVerticalSpace: CGFloat = 22
-    let presentYear = 2018
-    let presentMonth = 10
+    let presentYear = 2007
+    let presentMonth = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,6 @@ extension CalendarVC {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // section数は１つ
         return 2
     }
     
