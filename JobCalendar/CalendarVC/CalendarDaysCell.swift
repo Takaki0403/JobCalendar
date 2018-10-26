@@ -3,11 +3,13 @@ import UIKit
 
 class CalendarDaysCell: UICollectionViewCell {
 
+    @IBOutlet weak var backV: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backV.layer.borderColor = UIColor.black.cgColor
+        self.backV.layer.borderWidth = 0.5
     }
     
     func setupCell(date: String) {
