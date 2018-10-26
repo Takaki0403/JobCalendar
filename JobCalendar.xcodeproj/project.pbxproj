@@ -105,6 +105,14 @@
 			path = Options;
 			sourceTree = "<group>";
 		};
+		000E537F218330CD00A76CD2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		00D359832181E29700C2FB96 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +136,7 @@
 		00D3598E2181E29700C2FB96 /* JobCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				000E537F218330CD00A76CD2 /* Images */,
 				000E536921830FC300A76CD2 /* Options */,
 				00D359BD2181E68F00C2FB96 /* CalendarVC */,
 				00D3598F2181E29700C2FB96 /* AppDelegate.swift */,
@@ -163,7 +172,6 @@
 			children = (
 				00D359BE2181E6BB00C2FB96 /* CalendarVC.swift */,
 				00D359CC2181F3EE00C2FB96 /* Calendar.storyboard */,
-				00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */,
 				00D359D92182044700C2FB96 /* CalendarDaysCell.swift */,
 				00D359DA2182044700C2FB96 /* CalendarDaysCell.xib */,
 				00D359DD2182A6CD00C2FB96 /* CalendarWeekCell.swift */,
