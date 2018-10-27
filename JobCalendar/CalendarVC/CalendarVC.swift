@@ -6,7 +6,7 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var calendarCollection: UICollectionView!
     
-    let cellMargin: CGFloat = 1
+    let cellMargin: CGFloat = 0.4
     let daysCellHorizonalCount:CGFloat = 7
     let daysCellVerticalCount:CGFloat = 5
     let weekVerticalSize: CGFloat = 22
@@ -63,20 +63,20 @@ extension CalendarVC {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
 
+        let dateManager = DateManager()
+        let calendarContents = dateManager.mkDaysInMonth(year: self.components.year!, month: self.components.month!)
         if indexPath.section == 0 {
             let weekCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.week.rawValue, for: indexPath)
             if let weekCell = weekCell as? CalendarWeekCell {
-                weekCell.setupCell(week: weeks[indexPath.row])
+                weekCell.setupCell(week: weeks[indexPath.row], indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
             }
             return weekCell
         } else {
-            let dateManager = DateManager()
-            let daysInMonth = dateManager.mkDaysInMonth(year: self.components.year!, month: self.components.month!)
             let daysCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.days.rawValue, for: indexPath)
             if let daysCell = daysCell as? CalendarDaysCell {
-                daysCell.dateLabel.text = String(daysInMonth[indexPath.row])
+                daysCell.setupCell(date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
             }
             return daysCell
         }

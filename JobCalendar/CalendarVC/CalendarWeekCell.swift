@@ -15,13 +15,17 @@ class CalendarWeekCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.backV.layer.borderColor = UIColor.black.cgColor
-//        self.backV.layer.borderWidth = 0.5
     }
     
-    func setupCell(week: String) {
+    func setupCell(week: String, indexPath: IndexPath, daysOfPreMonth: Int, daysOfLastMonth: Int) {
         self.weekLabel.text = week
-        self.backgroundColor = .lightGray
+        if (indexPath.row % 7 == 0) {
+            self.weekLabel.textColor = UIColor.red
+        } else if (indexPath.row % 7 == 6) {
+            self.weekLabel.textColor = UIColor.blue
+        } else {
+            self.weekLabel.textColor = UIColor.black
+        }
     }
 
 }
