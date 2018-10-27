@@ -24,7 +24,6 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Calendar" id="4Zp-ji-jmO">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; 2015/07" id="ALU-3D-wPX"/>
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="add" id="xmT-na-Olk"/>
                                             <barButtonItem title="Item" image="money_icon128.png" landscapeImage="money_icon128.png" id="212-L5-Eu3"/>
@@ -32,8 +31,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZR-ts-bL1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZR-ts-bL1">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7O-1D-Mzx">
                                     <size key="itemSize" width="50" height="50"/>
@@ -57,21 +56,65 @@
                                     <outlet property="delegate" destination="Dn1-NH-J51" id="PHJ-f1-pdv"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-w8-5sw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-OS-tj7">
+                                        <rect key="frame" x="166.5" y="5" width="42" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-2f-YJT">
+                                        <rect key="frame" x="5" y="7" width="46" height="30"/>
+                                        <state key="normal" title="＜前月"/>
+                                        <connections>
+                                            <action selector="headerLeftBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="aOQ-Kc-Sxh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dk-ER-a7b">
+                                        <rect key="frame" x="324" y="7" width="46" height="30"/>
+                                        <state key="normal" title="次月＞"/>
+                                        <connections>
+                                            <action selector="headerRightBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="k07-iW-udu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0Aj-OS-tj7" secondAttribute="bottom" constant="5" id="0Mb-JN-Awc"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerX" secondItem="Ac8-w8-5sw" secondAttribute="centerX" id="1Xp-Qu-ifW"/>
+                                    <constraint firstAttribute="height" constant="44" id="2Wq-8a-RY3"/>
+                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="leading" secondItem="Ac8-w8-5sw" secondAttribute="leading" constant="5" id="7nD-Wd-lFv"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerY" secondItem="Ac8-w8-5sw" secondAttribute="centerY" id="APH-Np-PUM"/>
+                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Aj-OS-tj7" secondAttribute="trailing" constant="8" symbolic="YES" id="PEa-Ij-zzE"/>
+                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="U99-Q6-1aY"/>
+                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="gRx-sD-tAL"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="top" constant="5" id="rRb-VQ-cxi"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d2f-2f-YJT" secondAttribute="trailing" constant="8" symbolic="YES" id="tHf-gZ-hrL"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Dk-ER-a7b" secondAttribute="trailing" constant="5" id="tVU-rQ-VAs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="89S-ie-HjV" secondAttribute="bottom" id="5u0-SP-LEw"/>
-                            <constraint firstItem="vtH-Qt-SbE" firstAttribute="bottom" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="Hfm-YL-hun"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="3eC-pF-Bve"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="bottom" secondItem="vtH-Qt-SbE" secondAttribute="bottom" id="7I6-KD-ObX"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="bottom" id="7hC-zf-asM"/>
                             <constraint firstItem="89S-ie-HjV" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="JxA-ul-7ML"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="Roo-6h-uid"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="TGG-Q3-dgg"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="TQP-UQ-8C6"/>
                             <constraint firstItem="89S-ie-HjV" firstAttribute="top" secondItem="vtH-Qt-SbE" secondAttribute="top" id="WWT-PG-KVq"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="fWU-Fk-nXx"/>
                             <constraint firstItem="89S-ie-HjV" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="rdh-Kp-fB6"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="yxQ-Ul-AgD"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="top" secondItem="89S-ie-HjV" secondAttribute="bottom" id="w8H-zc-beX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vtH-Qt-SbE"/>
                     </view>
                     <connections>
                         <outlet property="calendarCollection" destination="xZR-ts-bL1" id="wyA-gH-YNE"/>
+                        <outlet property="headerTitleLabel" destination="0Aj-OS-tj7" id="4nD-Li-4IO"/>
+                        <outlet property="headerV" destination="Ac8-w8-5sw" id="f4Z-TS-0ml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO3-9A-TgX" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -2,20 +2,59 @@ import UIKit
 
 class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var headerV: UIView!
+    @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var calendarCollection: UICollectionView!
-    let cellMargin: CGFloat = 0
+    
+    let cellMargin: CGFloat = 1
     let daysCellHorizonalCount:CGFloat = 7
     let daysCellVerticalCount:CGFloat = 5
-    let weekVerticalSpace: CGFloat = 22
-    let presentYear = 2007
-    let presentMonth = 8
+    let weekVerticalSize: CGFloat = 22
+    
+    let now = Date()
+    var cal = Calendar.current
+    let dateFormatter = DateFormatter()
+    var components = DateComponents()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
         calendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
+        
+        self.cal.locale = Locale(identifier: "ja")
+        self.dateFormatter.locale = Locale(identifier: "ja_JP")
+        self.dateFormatter.dateFormat = "yyyy年M月"
+        self.components.year = self.cal.component(.year, from: now)
+        self.components.month = self.cal.component(.month, from: now)
+        self.components.day = 1
+        print(components)
+        self.updateHeaderTitleLabel(components: self.components)
     }
     
+    func updateHeaderTitleLabel(components: DateComponents) {
+        let firstDayOfMonth = self.cal.date(from: components)
+        self.headerTitleLabel.text = self.dateFormatter.string(from: firstDayOfMonth!)
+    }
+    
+    @IBAction func headerLeftBtn(_ sender: Any) {
+        self.components.month = self.components.month! - 1
+        if self.components.month! < 1 {
+            self.components.month = 12
+            self.components.year = self.components.year! - 1
+        }
+        updateHeaderTitleLabel(components: self.components)
+        calendarCollection.reloadData()
+    }
+    
+    @IBAction func headerRightBtn(_ sender: Any) {
+        self.components.month = self.components.month! + 1
+        if self.components.month! > 12 {
+            self.components.month = 1
+            self.components.year = self.components.year! + 1
+        }
+        updateHeaderTitleLabel(components: self.components)
+        calendarCollection.reloadData()
+    }
     
 }
 
@@ -23,7 +62,7 @@ extension CalendarVC {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        
+
         if indexPath.section == 0 {
             let weekCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.week.rawValue, for: indexPath)
@@ -33,7 +72,7 @@ extension CalendarVC {
             return weekCell
         } else {
             let dateManager = DateManager()
-            let daysInMonth = dateManager.mkDaysInMonth(year: self.presentYear, month: self.presentMonth)
+            let daysInMonth = dateManager.mkDaysInMonth(year: self.components.year!, month: self.components.month!)
             let daysCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.days.rawValue, for: indexPath)
             if let daysCell = daysCell as? CalendarDaysCell {
@@ -58,16 +97,13 @@ extension CalendarVC {
     
     // Screenサイズに応じたセルサイズを返す
     // UICollectionViewDelegateFlowLayoutの設定が必要
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let horizonalSpace:CGFloat = self.calendarCollection.frame.width / daysCellHorizonalCount
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let horizonalSize:CGFloat = (self.calendarCollection.frame.width - self.cellMargin * (self.daysCellHorizonalCount - 1)) / self.daysCellHorizonalCount
         if indexPath.section == 0 {
-            return CGSize(width: horizonalSpace, height: weekVerticalSpace)
+            return CGSize(width: horizonalSize.rounded(.down), height: self.weekVerticalSize)
         } else {
-            let verticalSpace:CGFloat = (self.calendarCollection.frame.height - weekVerticalSpace) / daysCellVerticalCount
-            return CGSize(width: horizonalSpace, height: verticalSpace)
+            let verticalSize:CGFloat = (self.calendarCollection.frame.height - self.weekVerticalSize - self.cellMargin * self.daysCellVerticalCount) / self.daysCellVerticalCount
+            return CGSize(width: horizonalSize.rounded(.down), height: verticalSize.rounded(.down))
         }
     }
     // セル間のスペースについて

@@ -15,8 +15,8 @@ class CalendarWeekCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backV.layer.borderColor = UIColor.black.cgColor
-        self.backV.layer.borderWidth = 0.5
+//        self.backV.layer.borderColor = UIColor.black.cgColor
+//        self.backV.layer.borderWidth = 0.5
     }
     
     func setupCell(week: String) {
