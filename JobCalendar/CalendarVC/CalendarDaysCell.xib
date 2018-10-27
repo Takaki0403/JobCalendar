@@ -22,17 +22,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaQ-0J-mZV">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
-                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="5" y="0.0" width="295" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="m9T-Gx-Mbl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IaQ-0J-mZV" firstAttribute="top" secondItem="WMj-hg-vy8" secondAttribute="top" id="MhZ-xH-8m5"/>
-                            <constraint firstItem="IaQ-0J-mZV" firstAttribute="leading" secondItem="WMj-hg-vy8" secondAttribute="leading" id="hrp-EX-lvQ"/>
+                            <constraint firstItem="IaQ-0J-mZV" firstAttribute="leading" secondItem="WMj-hg-vy8" secondAttribute="leading" constant="5" id="Xwf-cY-B3b"/>
+                            <constraint firstAttribute="trailing" secondItem="IaQ-0J-mZV" secondAttribute="trailing" id="cyK-5e-6R9"/>
+                            <constraint firstItem="IaQ-0J-mZV" firstAttribute="top" secondItem="WMj-hg-vy8" secondAttribute="top" id="glZ-yi-1fs"/>
                             <constraint firstAttribute="trailing" secondItem="IaQ-0J-mZV" secondAttribute="trailing" id="uH6-q0-pA6"/>
                         </constraints>
                     </view>
@@ -40,10 +45,14 @@
             </view>
             <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="WMj-hg-vy8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0HN-Nx-ghn"/>
                 <constraint firstItem="WMj-hg-vy8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HiP-pe-SB5"/>
                 <constraint firstAttribute="trailing" secondItem="WMj-hg-vy8" secondAttribute="trailing" id="Riq-eb-ex9"/>
+                <constraint firstItem="WMj-hg-vy8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Riu-j2-bu2"/>
                 <constraint firstItem="WMj-hg-vy8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="X2v-fi-lMD"/>
+                <constraint firstAttribute="bottom" secondItem="WMj-hg-vy8" secondAttribute="bottom" id="dDt-KW-Rvo"/>
                 <constraint firstAttribute="bottom" secondItem="WMj-hg-vy8" secondAttribute="bottom" id="vE5-16-8Lh"/>
+                <constraint firstAttribute="trailing" secondItem="WMj-hg-vy8" secondAttribute="trailing" id="wUk-Sh-kdg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="176" height="218"/>
