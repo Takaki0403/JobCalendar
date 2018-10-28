@@ -20,9 +20,6 @@
 		00D359B02181E29800C2FB96 /* JobCalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359AF2181E29800C2FB96 /* JobCalendarUITests.swift */; };
 		00D359BF2181E6BB00C2FB96 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359BE2181E6BB00C2FB96 /* CalendarVC.swift */; };
 		00D359CA2181F3EE00C2FB96 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D359CC2181F3EE00C2FB96 /* Calendar.storyboard */; };
-		00D359CE2181FD9C00C2FB96 /* money_icon128@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */; };
-		00D359CF2181FE0D00C2FB96 /* money_icon128@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */; };
-		00D359D02181FE0E00C2FB96 /* money_icon128@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */; };
 		00D359DB2182044700C2FB96 /* CalendarDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359D92182044700C2FB96 /* CalendarDaysCell.swift */; };
 		00D359DC2182044700C2FB96 /* CalendarDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00D359DA2182044700C2FB96 /* CalendarDaysCell.xib */; };
 		00D359DF2182A6CD00C2FB96 /* CalendarWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359DD2182A6CD00C2FB96 /* CalendarWeekCell.swift */; };
@@ -33,6 +30,8 @@
 		00E2D8422185D62C0049D48F /* RealmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2D8412185D62C0049D48F /* RealmActions.swift */; };
 		00E2D8442185DF550049D48F /* AddTaskV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E2D8432185DF550049D48F /* AddTaskV.xib */; };
 		00E2D8482185DFF70049D48F /* AddTaskV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2D8472185DFF70049D48F /* AddTaskV.swift */; };
+		00E2D84A2185E66B0049D48F /* money_icon100@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E2D8492185E66B0049D48F /* money_icon100@3x.png */; };
+		00E2D84C2185ED2D0049D48F /* calendar_icon_96@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E2D84B2185ED2D0049D48F /* calendar_icon_96@3x.png */; };
 		3416C078C5B198C6FA592760 /* Pods_JobCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD933F8900EC8C1C569316E5 /* Pods_JobCalendarUITests.framework */; };
 		630AA498B921485B4E24137A /* Pods_JobCalendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A508298A03B8B8CC6237E /* Pods_JobCalendarTests.framework */; };
 		7EBAA99F228630C37137D63B /* Pods_JobCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6410BE4ABAEBAE4E291489F6 /* Pods_JobCalendar.framework */; };
@@ -75,7 +74,6 @@
 		00D359B12181E29800C2FB96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00D359BE2181E6BB00C2FB96 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		00D359CB2181F3EE00C2FB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
-		00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money_icon128@3x.png"; sourceTree = "<group>"; };
 		00D359D92182044700C2FB96 /* CalendarDaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDaysCell.swift; sourceTree = "<group>"; };
 		00D359DA2182044700C2FB96 /* CalendarDaysCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarDaysCell.xib; sourceTree = "<group>"; };
 		00D359DD2182A6CD00C2FB96 /* CalendarWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekCell.swift; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		00E2D8412185D62C0049D48F /* RealmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActions.swift; sourceTree = "<group>"; };
 		00E2D8432185DF550049D48F /* AddTaskV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskV.xib; sourceTree = "<group>"; };
 		00E2D8472185DFF70049D48F /* AddTaskV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskV.swift; sourceTree = "<group>"; };
+		00E2D8492185E66B0049D48F /* money_icon100@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money_icon100@3x.png"; sourceTree = "<group>"; };
+		00E2D84B2185ED2D0049D48F /* calendar_icon_96@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_icon_96@3x.png"; sourceTree = "<group>"; };
 		0AEB8EE4D3BDECA02D493112 /* Pods-JobCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobCalendar/Pods-JobCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		30F094E38658CFF377E74FA4 /* Pods-JobCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-JobCalendar/Pods-JobCalendar.release.xcconfig"; sourceTree = "<group>"; };
 		6410BE4ABAEBAE4E291489F6 /* Pods_JobCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +139,8 @@
 		000E537F218330CD00A76CD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				00D359CD2181FD9C00C2FB96 /* money_icon128@3x.png */,
+				00E2D8492185E66B0049D48F /* money_icon100@3x.png */,
+				00E2D84B2185ED2D0049D48F /* calendar_icon_96@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -363,13 +364,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00D359CE2181FD9C00C2FB96 /* money_icon128@3x.png in Resources */,
 				00D359CA2181F3EE00C2FB96 /* Calendar.storyboard in Resources */,
 				00D359E02182A6CD00C2FB96 /* CalendarWeekCell.xib in Resources */,
 				00D359DC2182044700C2FB96 /* CalendarDaysCell.xib in Resources */,
 				00D3599A2181E29800C2FB96 /* LaunchScreen.storyboard in Resources */,
 				00D359972181E29800C2FB96 /* Assets.xcassets in Resources */,
+				00E2D84A2185E66B0049D48F /* money_icon100@3x.png in Resources */,
 				00D359952181E29700C2FB96 /* Main.storyboard in Resources */,
+				00E2D84C2185ED2D0049D48F /* calendar_icon_96@3x.png in Resources */,
 				00E2D8442185DF550049D48F /* AddTaskV.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +380,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00D359CF2181FE0D00C2FB96 /* money_icon128@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +387,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00D359D02181FE0E00C2FB96 /* money_icon128@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

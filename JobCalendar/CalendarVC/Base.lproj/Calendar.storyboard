@@ -17,22 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89S-ie-HjV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-w8-5sw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-OS-tj7">
+                                        <rect key="frame" x="166.5" y="5" width="42" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-2f-YJT">
+                                        <rect key="frame" x="5" y="7" width="46" height="30"/>
+                                        <state key="normal" title="＜前月"/>
+                                        <connections>
+                                            <action selector="headerLeftBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="aOQ-Kc-Sxh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dk-ER-a7b">
+                                        <rect key="frame" x="324" y="7" width="46" height="30"/>
+                                        <state key="normal" title="次月＞"/>
+                                        <connections>
+                                            <action selector="headerRightBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="k07-iW-udu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.94901960784313721" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="il3-hR-x6l"/>
+                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="leading" secondItem="Ac8-w8-5sw" secondAttribute="leading" constant="5" id="0Cc-ls-reH"/>
+                                    <constraint firstAttribute="height" constant="44" id="1mi-Mz-0JY"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Dk-ER-a7b" secondAttribute="trailing" constant="5" id="FXa-hL-Dej"/>
+                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Aj-OS-tj7" secondAttribute="trailing" constant="8" symbolic="YES" id="PEa-Ij-zzE"/>
+                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="U99-Q6-1aY"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerY" secondItem="Ac8-w8-5sw" secondAttribute="centerY" id="dea-Mi-PLf"/>
+                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="gRx-sD-tAL"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerX" secondItem="Ac8-w8-5sw" secondAttribute="centerX" id="mj5-m4-8pZ"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d2f-2f-YJT" secondAttribute="trailing" constant="8" symbolic="YES" id="tHf-gZ-hrL"/>
+                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="top" constant="5" id="u9O-ZZ-2Xq"/>
                                 </constraints>
-                                <items>
-                                    <navigationItem title="Calendar" id="4Zp-ji-jmO">
-                                        <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="xmT-na-Olk"/>
-                                            <barButtonItem title="Item" image="money_icon128.png" landscapeImage="money_icon128.png" id="212-L5-Eu3"/>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZR-ts-bL1">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7O-1D-Mzx">
                                     <size key="itemSize" width="50" height="50"/>
@@ -56,58 +80,28 @@
                                     <outlet property="delegate" destination="Dn1-NH-J51" id="PHJ-f1-pdv"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-w8-5sw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-OS-tj7">
-                                        <rect key="frame" x="166.5" y="5" width="42" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-2f-YJT">
-                                        <rect key="frame" x="5" y="7" width="46" height="30"/>
-                                        <state key="normal" title="＜前月"/>
-                                        <connections>
-                                            <action selector="headerLeftBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="aOQ-Kc-Sxh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dk-ER-a7b">
-                                        <rect key="frame" x="324" y="7" width="46" height="30"/>
-                                        <state key="normal" title="次月＞"/>
-                                        <connections>
-                                            <action selector="headerRightBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="k07-iW-udu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0Aj-OS-tj7" secondAttribute="bottom" constant="5" id="0Mb-JN-Awc"/>
-                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerX" secondItem="Ac8-w8-5sw" secondAttribute="centerX" id="1Xp-Qu-ifW"/>
-                                    <constraint firstAttribute="height" constant="44" id="2Wq-8a-RY3"/>
-                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="leading" secondItem="Ac8-w8-5sw" secondAttribute="leading" constant="5" id="7nD-Wd-lFv"/>
-                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerY" secondItem="Ac8-w8-5sw" secondAttribute="centerY" id="APH-Np-PUM"/>
-                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Aj-OS-tj7" secondAttribute="trailing" constant="8" symbolic="YES" id="PEa-Ij-zzE"/>
-                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="U99-Q6-1aY"/>
-                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="gRx-sD-tAL"/>
-                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="top" constant="5" id="rRb-VQ-cxi"/>
-                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d2f-2f-YJT" secondAttribute="trailing" constant="8" symbolic="YES" id="tHf-gZ-hrL"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Dk-ER-a7b" secondAttribute="trailing" constant="5" id="tVU-rQ-VAs"/>
-                                </constraints>
-                            </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1VP-0u-eMp">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <tabBarItem title="給料入力・計算" image="money_icon100.png" id="2sP-yF-jvf"/>
+                                    <tabBarItem title="カレンダー一覧" image="calendar_icon_96.png" id="tIa-FA-ox4"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="3eC-pF-Bve"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="bottom" secondItem="vtH-Qt-SbE" secondAttribute="bottom" id="7I6-KD-ObX"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="bottom" id="7hC-zf-asM"/>
-                            <constraint firstItem="89S-ie-HjV" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="JxA-ul-7ML"/>
-                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="Roo-6h-uid"/>
-                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="TGG-Q3-dgg"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="TQP-UQ-8C6"/>
-                            <constraint firstItem="89S-ie-HjV" firstAttribute="top" secondItem="vtH-Qt-SbE" secondAttribute="top" id="WWT-PG-KVq"/>
-                            <constraint firstItem="89S-ie-HjV" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="rdh-Kp-fB6"/>
-                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="top" secondItem="89S-ie-HjV" secondAttribute="bottom" id="w8H-zc-beX"/>
+                            <constraint firstItem="1VP-0u-eMp" firstAttribute="bottom" secondItem="vtH-Qt-SbE" secondAttribute="bottom" id="1tF-YJ-KrY"/>
+                            <constraint firstItem="1VP-0u-eMp" firstAttribute="top" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="2ew-MP-ffv"/>
+                            <constraint firstItem="1VP-0u-eMp" firstAttribute="top" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="3Cf-cu-wHS"/>
+                            <constraint firstItem="1VP-0u-eMp" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="5RS-TI-sbH"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="8be-yL-64e"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="top" secondItem="vtH-Qt-SbE" secondAttribute="top" id="aQ7-Wj-XE6"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="bottom" id="feb-Em-ZCr"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="geG-oI-076"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="jF4-Fg-ZHs"/>
+                            <constraint firstItem="1VP-0u-eMp" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="tcK-h8-Igv"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="yzo-Re-xN0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vtH-Qt-SbE"/>
                     </view>
@@ -123,6 +117,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="money_icon128.png" width="42" height="42"/>
+        <image name="calendar_icon_96.png" width="32" height="32"/>
+        <image name="money_icon100.png" width="33" height="33"/>
     </resources>
 </document>
