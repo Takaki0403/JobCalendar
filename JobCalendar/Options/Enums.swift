@@ -13,3 +13,10 @@ enum CalendarWeekName: String {
     case fri = "Fri"
     case sat = "Sat"
 } 
+
+enum CalendarJobType: String {
+    case red = "CalendarJobTypeRed"
+    case blue = "CalendarJobTypeBlue"
+    case yellow = "CalendarJobTypeYellow"
+    case green = "CalendarJobTypeGreen"
+}

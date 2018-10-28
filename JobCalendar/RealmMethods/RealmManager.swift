@@ -27,18 +27,8 @@ struct RealmManager {
         }
     }
     
-    static func resetRealm(config: Realm.Configuration) {
-        let fileManager = FileManager.default
-        let fileUrl = config.fileURL!
-        if fileManager.fileExists(atPath: fileUrl.path) {
-            try! fileManager.removeItem(at: fileUrl)
-        }
-        Realm.Configuration.defaultConfiguration = config
-    }
-    
-    
     static func getKey() -> Data {
-        let keychainIdentifier = "io.Realm.EncryptionInakenAppKey"
+        let keychainIdentifier = "io.Realm.EncryptionJobCalendarKey"
         var keychainIdentifierData: Data {
             return keychainIdentifier.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         }
@@ -78,4 +68,55 @@ struct RealmManager {
         return keyData as Data
     }
     
+    static func resetRealm(config: Realm.Configuration) {
+        let fileManager = FileManager.default
+        let fileUrl = config.fileURL!
+        if fileManager.fileExists(atPath: fileUrl.path) {
+            try! fileManager.removeItem(at: fileUrl)
+        }
+        Realm.Configuration.defaultConfiguration = config
+    }
+    
+    static func addObject(object: Object, update: Bool) {
+        let realm = try! Realm()
+        if update {
+            do {
+                try realm.write {
+                    realm.add(object, update: true)
+                }
+            } catch {
+                print("Realm Update Error: \(object)")
+            }
+        } else {
+            do {
+                try realm.write {
+                    realm.add(object)
+                }
+            } catch {
+                print("Realm Add Error: \(object)")
+            }
+        }
+    }
+    
+    static func deleteObject(object: Object){
+        let realm = try! Realm()
+        do {
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch {
+            print("Realm delete Error: \(object)")
+        }
+    }
+    
+    static func decidePrimaryId(id: Int?) -> Int {
+        var decidedId: Int = 0
+        if id == nil {
+            decidedId = 0
+        } else {
+            decidedId = id!
+        }
+        
+        return decidedId
+    }
 }
