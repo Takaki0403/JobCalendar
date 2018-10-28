@@ -27,7 +27,6 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.components.year = self.cal.component(.year, from: now)
         self.components.month = self.cal.component(.month, from: now)
         self.components.day = 1
-        print(components)
         self.updateHeaderTitleLabel(components: self.components)
     }
     
