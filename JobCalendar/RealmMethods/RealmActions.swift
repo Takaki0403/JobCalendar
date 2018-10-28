@@ -1,8 +1,8 @@
 import RealmSwift
 
 class RealmAction: NSObject {
+    let realm = try! Realm()
     func addCalendarContentsToRealm(contents: CalendarContentsStruct) {
-        let realm = try! Realm()
         var objectId = 0
         if contents.id == nil {
             objectId = realm.objects(CalendarContentsSheet.self).count

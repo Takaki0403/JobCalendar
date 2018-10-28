@@ -31,6 +31,8 @@
 		00E2D83E2185CCBD0049D48F /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2D83D2185CCBD0049D48F /* RealmModels.swift */; };
 		00E2D8402185D39C0049D48F /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2D83F2185D39C0049D48F /* Structs.swift */; };
 		00E2D8422185D62C0049D48F /* RealmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2D8412185D62C0049D48F /* RealmActions.swift */; };
+		00E2D8442185DF550049D48F /* AddTaskV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E2D8432185DF550049D48F /* AddTaskV.xib */; };
+		00E2D8482185DFF70049D48F /* AddTaskV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2D8472185DFF70049D48F /* AddTaskV.swift */; };
 		3416C078C5B198C6FA592760 /* Pods_JobCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD933F8900EC8C1C569316E5 /* Pods_JobCalendarUITests.framework */; };
 		630AA498B921485B4E24137A /* Pods_JobCalendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2A508298A03B8B8CC6237E /* Pods_JobCalendarTests.framework */; };
 		7EBAA99F228630C37137D63B /* Pods_JobCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6410BE4ABAEBAE4E291489F6 /* Pods_JobCalendar.framework */; };
@@ -82,6 +84,8 @@
 		00E2D83D2185CCBD0049D48F /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModels.swift; sourceTree = "<group>"; };
 		00E2D83F2185D39C0049D48F /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		00E2D8412185D62C0049D48F /* RealmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmActions.swift; sourceTree = "<group>"; };
+		00E2D8432185DF550049D48F /* AddTaskV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskV.xib; sourceTree = "<group>"; };
+		00E2D8472185DFF70049D48F /* AddTaskV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskV.swift; sourceTree = "<group>"; };
 		0AEB8EE4D3BDECA02D493112 /* Pods-JobCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobCalendar/Pods-JobCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		30F094E38658CFF377E74FA4 /* Pods-JobCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-JobCalendar/Pods-JobCalendar.release.xcconfig"; sourceTree = "<group>"; };
 		6410BE4ABAEBAE4E291489F6 /* Pods_JobCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,8 @@
 				00D359DD2182A6CD00C2FB96 /* CalendarWeekCell.swift */,
 				00D359DE2182A6CD00C2FB96 /* CalendarWeekCell.xib */,
 				000E53672183024300A76CD2 /* DateManager.swift */,
+				00E2D8472185DFF70049D48F /* AddTaskV.swift */,
+				00E2D8432185DF550049D48F /* AddTaskV.xib */,
 			);
 			path = CalendarVC;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				00D3599A2181E29800C2FB96 /* LaunchScreen.storyboard in Resources */,
 				00D359972181E29800C2FB96 /* Assets.xcassets in Resources */,
 				00D359952181E29700C2FB96 /* Main.storyboard in Resources */,
+				00E2D8442185DF550049D48F /* AddTaskV.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +558,7 @@
 				00E2D83E2185CCBD0049D48F /* RealmModels.swift in Sources */,
 				000E53852184981D00A76CD2 /* ExtensionUIColor.swift in Sources */,
 				00D359DB2182044700C2FB96 /* CalendarDaysCell.swift in Sources */,
+				00E2D8482185DFF70049D48F /* AddTaskV.swift in Sources */,
 				00D359902181E29700C2FB96 /* AppDelegate.swift in Sources */,
 				00E2D83C2185B9DB0049D48F /* RealmManager.swift in Sources */,
 				00D359BF2181E6BB00C2FB96 /* CalendarVC.swift in Sources */,
