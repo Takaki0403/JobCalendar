@@ -21,7 +21,10 @@ class AddTaskV: UIView {
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(view)
     }
-
+    @IBAction func outSideTap(_ sender: Any) {
+        self.superview?.removeFromSuperview()
+    }
+    
 }
 
 protocol AddTaskVManager {
@@ -31,8 +34,13 @@ protocol AddTaskVManager {
 extension AddTaskVManager {
     
     func setAddTaskV(superView: UIView) {
+        let transparentBackground = UIView(frame: UIScreen.main.bounds)
+        transparentBackground.backgroundColor = UIColor(white: 0.0, alpha: 0.54)
+        UIApplication.shared.keyWindow!.addSubview(transparentBackground)
         let addTaskV = AddTaskV(frame: CGRect(x: 0.0, y: 0.0, width: superView.frame.width, height: superView.frame.height))
-        superView.addSubview(addTaskV)
+        transparentBackground.addSubview(addTaskV)
+        UIApplication.shared.keyWindow!.bringSubviewToFront(transparentBackground)
+        superView.bringSubviewToFront(transparentBackground)
     }
     
 }

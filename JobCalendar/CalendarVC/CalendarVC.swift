@@ -1,6 +1,6 @@
 import UIKit
 
-class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddTaskVManager {
     
     @IBOutlet weak var headerV: UIView!
     @IBOutlet weak var headerTitleLabel: UILabel!
@@ -115,5 +115,11 @@ extension CalendarVC {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return cellMargin
+    }
+    
+    // Cell が選択された場合
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("index>> \(indexPath.row)")
+        setAddTaskV(superView: self.view)
     }
 }

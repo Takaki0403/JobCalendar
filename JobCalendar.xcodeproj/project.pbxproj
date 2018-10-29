@@ -11,6 +11,10 @@
 		000E536B21830FD600A76CD2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E536A21830FD600A76CD2 /* Enums.swift */; };
 		000E536D218310BD00A76CD2 /* GrobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E536C218310BD00A76CD2 /* GrobalVariables.swift */; };
 		000E53852184981D00A76CD2 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E53842184981D00A76CD2 /* ExtensionUIColor.swift */; };
+		006C987D21874CB6003B0244 /* colorWhiteWaiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987921874CB5003B0244 /* colorWhiteWaiting@2x.png */; };
+		006C987E21874CB6003B0244 /* colorBlackWaiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987A21874CB5003B0244 /* colorBlackWaiting@2x.png */; };
+		006C987F21874CB6003B0244 /* colorWhiteSeted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987B21874CB6003B0244 /* colorWhiteSeted@2x.png */; };
+		006C988021874CB6003B0244 /* colorBlackSeted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987C21874CB6003B0244 /* colorBlackSeted@2x.png */; };
 		00D359902181E29700C2FB96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3598F2181E29700C2FB96 /* AppDelegate.swift */; };
 		00D359922181E29700C2FB96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359912181E29700C2FB96 /* ViewController.swift */; };
 		00D359952181E29700C2FB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D359932181E29700C2FB96 /* Main.storyboard */; };
@@ -61,6 +65,10 @@
 		000E536A21830FD600A76CD2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		000E536C218310BD00A76CD2 /* GrobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrobalVariables.swift; sourceTree = "<group>"; };
 		000E53842184981D00A76CD2 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		006C987921874CB5003B0244 /* colorWhiteWaiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorWhiteWaiting@2x.png"; sourceTree = "<group>"; };
+		006C987A21874CB5003B0244 /* colorBlackWaiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorBlackWaiting@2x.png"; sourceTree = "<group>"; };
+		006C987B21874CB6003B0244 /* colorWhiteSeted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorWhiteSeted@2x.png"; sourceTree = "<group>"; };
+		006C987C21874CB6003B0244 /* colorBlackSeted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorBlackSeted@2x.png"; sourceTree = "<group>"; };
 		00D3598C2181E29700C2FB96 /* JobCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D3598F2181E29700C2FB96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00D359912181E29700C2FB96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +151,10 @@
 		000E537F218330CD00A76CD2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				006C987C21874CB6003B0244 /* colorBlackSeted@2x.png */,
+				006C987A21874CB5003B0244 /* colorBlackWaiting@2x.png */,
+				006C987B21874CB6003B0244 /* colorWhiteSeted@2x.png */,
+				006C987921874CB5003B0244 /* colorWhiteWaiting@2x.png */,
 				00E2D84F2186CD3F0049D48F /* calendar_icon_96@3x.png */,
 				00E2D84B2185ED2D0049D48F /* calendars_icon_96@3x.png */,
 				00E2D8492185E66B0049D48F /* money_icon100@3x.png */,
@@ -394,16 +406,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006C987D21874CB6003B0244 /* colorWhiteWaiting@2x.png in Resources */,
 				00D359CA2181F3EE00C2FB96 /* Calendar.storyboard in Resources */,
 				00D359E02182A6CD00C2FB96 /* CalendarWeekCell.xib in Resources */,
 				00D359DC2182044700C2FB96 /* CalendarDaysCell.xib in Resources */,
 				00E2D8502186CD3F0049D48F /* calendar_icon_96@3x.png in Resources */,
 				00D3599A2181E29800C2FB96 /* LaunchScreen.storyboard in Resources */,
+				006C987E21874CB6003B0244 /* colorBlackWaiting@2x.png in Resources */,
+				006C988021874CB6003B0244 /* colorBlackSeted@2x.png in Resources */,
 				00D359972181E29800C2FB96 /* Assets.xcassets in Resources */,
 				00E2D84A2185E66B0049D48F /* money_icon100@3x.png in Resources */,
 				00D359952181E29700C2FB96 /* Main.storyboard in Resources */,
 				00E2D84E2186CB8A0049D48F /* task_icon_96@3x.png in Resources */,
 				00E2D84C2185ED2D0049D48F /* calendars_icon_96@3x.png in Resources */,
+				006C987F21874CB6003B0244 /* colorWhiteSeted@2x.png in Resources */,
 				00E2D8442185DF550049D48F /* AddTaskV.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,7 +799,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A95HK5T2E;
 				INFOPLIST_FILE = JobCalendar/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TakakiKata.JobCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -799,7 +818,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A95HK5T2E;
 				INFOPLIST_FILE = JobCalendar/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TakakiKata.JobCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -816,7 +838,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A95HK5T2E;
 				INFOPLIST_FILE = JobCalendarTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TakakiKata.JobCalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -834,7 +860,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A95HK5T2E;
 				INFOPLIST_FILE = JobCalendarTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TakakiKata.JobCalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -851,7 +881,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A95HK5T2E;
 				INFOPLIST_FILE = JobCalendarUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TakakiKata.JobCalendarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -868,7 +902,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A95HK5T2E;
 				INFOPLIST_FILE = JobCalendarUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TakakiKata.JobCalendarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
