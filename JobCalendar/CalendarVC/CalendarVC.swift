@@ -8,9 +8,10 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     let cellMargin: CGFloat = 0.4
     let daysCellHorizonalCount:CGFloat = 7
-    let daysCellVerticalCount:CGFloat = 5
+    var daysCellVerticalCount:CGFloat = 0
     let weekVerticalSize: CGFloat = 22
     
+    let dateManager = DateManager()
     let now = Date()
     var cal = Calendar.current
     let dateFormatter = DateFormatter()
@@ -33,24 +34,23 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
     func updateHeaderTitleLabel(components: DateComponents) {
         let firstDayOfMonth = self.cal.date(from: components)
         self.headerTitleLabel.text = self.dateFormatter.string(from: firstDayOfMonth!)
+        self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
     }
     
     @IBAction func headerLeftBtn(_ sender: Any) {
         self.components.month = self.components.month! - 1
-        if self.components.month! < 1 {
-            self.components.month = 12
-            self.components.year = self.components.year! - 1
-        }
+        let newYearAndMonth = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
+        self.components.year = newYearAndMonth.year
+        self.components.month = newYearAndMonth.month
         updateHeaderTitleLabel(components: self.components)
         calendarCollection.reloadData()
     }
     
     @IBAction func headerRightBtn(_ sender: Any) {
         self.components.month = self.components.month! + 1
-        if self.components.month! > 12 {
-            self.components.month = 1
-            self.components.year = self.components.year! + 1
-        }
+        let newYearAndMonth = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
+        self.components.year = newYearAndMonth.year
+        self.components.month = newYearAndMonth.month
         updateHeaderTitleLabel(components: self.components)
         calendarCollection.reloadData()
     }
@@ -62,20 +62,19 @@ extension CalendarVC {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
 
-        let dateManager = DateManager()
         let calendarContents = dateManager.mkDaysInMonth(year: self.components.year!, month: self.components.month!)
         if indexPath.section == 0 {
             let weekCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.week.rawValue, for: indexPath)
             if let weekCell = weekCell as? CalendarWeekCell {
-                weekCell.setupCell(week: weeks[indexPath.row], indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
+                weekCell.setupCell(week: weeks[indexPath.row], indexPath: indexPath)
             }
             return weekCell
         } else {
             let daysCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.days.rawValue, for: indexPath)
             if let daysCell = daysCell as? CalendarDaysCell {
-                daysCell.setupCell(date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
+                daysCell.setupCell(year: components.year!, month: components.month!, date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
             }
             return daysCell
         }

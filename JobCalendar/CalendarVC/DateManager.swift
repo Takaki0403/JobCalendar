@@ -41,10 +41,43 @@ class DateManager: NSObject {
         }
         var dayInNextMonth: Int = 1
         let daysOfLastMonth = daysInMonth.count
-        while daysInMonth.count < 35 {
+        while daysInMonth.count < 49 {
             daysInMonth.append(dayInNextMonth)
             dayInNextMonth += 1
         }
         return (daysInMonth, firstWeekInMonth, daysOfLastMonth)
+    }
+    
+    func decideMonthAndYear(year: Int, month: Int) -> (year: Int, month: Int){
+        var new_year: Int = 0
+        var new_month: Int = 0
+        if month > 12 {
+            new_year = year + 1
+            new_month = 1
+        } else if month < 1 {
+            new_year = year - 1
+            new_month = 12
+        } else {
+            new_year = year
+            new_month = month
+        }
+        
+        return (new_year, new_month)
+    }
+    
+    func getWeekCountInMonth(year: Int, month: Int) -> Int {
+        var weekCountInMonth = 0
+        let dayCountInMonth = self.getDaysInMonth(year: year, month: month)
+        let firstWeekInMonth = self.getFirstWeekInMonth(year: year, month: month)
+        print("firstWeekInMonth: \(firstWeekInMonth)")
+        if (dayCountInMonth + firstWeekInMonth) <= 4 * 7 {
+            weekCountInMonth = 4
+        } else if (dayCountInMonth + firstWeekInMonth) > 5 * 7 {
+            weekCountInMonth = 6
+        } else {
+            weekCountInMonth = 5
+        }
+        
+        return weekCountInMonth
     }
 }

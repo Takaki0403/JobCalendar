@@ -17,7 +17,7 @@ class CalendarWeekCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func setupCell(week: String, indexPath: IndexPath, daysOfPreMonth: Int, daysOfLastMonth: Int) {
+    func setupCell(week: String, indexPath: IndexPath) {
         self.weekLabel.text = week
         if (indexPath.row % 7 == 0) {
             self.weekLabel.textColor = UIColor.red
