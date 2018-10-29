@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC0F9B4E2677A32A56E109AF976480C8"
-               BlueprintName = "RealmSwift"
+               BlueprintIdentifier = "E271D645C5A8B4CD071570B76CD56E9C"
+               BlueprintName = "CalculateCalendarLogic"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "RealmSwift.framework">
+               BuildableName = "CalculateCalendarLogic.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

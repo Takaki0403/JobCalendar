@@ -7,6 +7,7 @@ target 'JobCalendar' do
 
   # Pods for JobCalendar
   pod 'RealmSwift'
+  pod 'CalculateCalendarLogic'
   
   target 'JobCalendarTests' do
     inherit! :search_paths

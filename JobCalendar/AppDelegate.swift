@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "CalendarVC")
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
+//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "CalendarVC")
+//        self.window?.rootViewController = initialViewController
+//        self.window?.makeKeyAndVisible()
         
         // Separate Launch situations
         let userDefault = UserDefaults.standard

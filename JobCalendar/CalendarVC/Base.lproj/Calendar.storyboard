@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--CalendarVC-->
+        <!--月単位-->
         <scene sceneID="v84-t8-y6h">
             <objects>
                 <viewController storyboardIdentifier="CalendarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dn1-NH-J51" customClass="CalendarVC" customModule="JobCalendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZR-ts-bL1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7O-1D-Mzx">
                                     <size key="itemSize" width="50" height="50"/>
@@ -80,32 +80,29 @@
                                     <outlet property="delegate" destination="Dn1-NH-J51" id="PHJ-f1-pdv"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ei8-bI-9RA">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <barButtonItem title="Item" image="money_icon100.png" width="82" id="Lvc-88-d1H"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6Aj-lo-XgT"/>
-                                    <barButtonItem title="Item" image="calendar_icon_96.png" width="86" id="uIn-XL-V01"/>
-                                </items>
-                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKT-BL-suL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.94901960780000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ei8-bI-9RA" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="98G-i0-93C"/>
-                            <constraint firstItem="ei8-bI-9RA" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="BCe-CW-3DA"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="VZH-aa-gd3"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="YfA-et-e24"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="6EK-II-6kR"/>
+                            <constraint firstItem="vtH-Qt-SbE" firstAttribute="bottom" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="EmP-xt-MAo"/>
+                            <constraint firstItem="UKT-BL-suL" firstAttribute="leading" secondItem="Ac8-w8-5sw" secondAttribute="leading" id="JCZ-4Y-4wt"/>
+                            <constraint firstItem="UKT-BL-suL" firstAttribute="top" secondItem="fF3-Oa-6oG" secondAttribute="top" id="NlX-qA-duu"/>
+                            <constraint firstItem="UKT-BL-suL" firstAttribute="trailing" secondItem="Ac8-w8-5sw" secondAttribute="trailing" id="PX2-5J-y1b"/>
                             <constraint firstItem="Ac8-w8-5sw" firstAttribute="top" secondItem="vtH-Qt-SbE" secondAttribute="top" id="aQ7-Wj-XE6"/>
-                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="bottom" id="dZ0-sc-EJ3"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="bottom" id="eGM-Ub-zc7"/>
                             <constraint firstItem="Ac8-w8-5sw" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="geG-oI-076"/>
-                            <constraint firstItem="ei8-bI-9RA" firstAttribute="top" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="pe4-2I-vXt"/>
-                            <constraint firstItem="ei8-bI-9RA" firstAttribute="top" secondItem="xZR-ts-bL1" secondAttribute="bottom" id="peV-7i-52g"/>
-                            <constraint firstItem="ei8-bI-9RA" firstAttribute="bottom" secondItem="vtH-Qt-SbE" secondAttribute="bottom" id="yYW-B2-D9U"/>
+                            <constraint firstItem="xZR-ts-bL1" firstAttribute="leading" secondItem="vtH-Qt-SbE" secondAttribute="leading" id="ojN-aZ-Ai5"/>
                             <constraint firstItem="Ac8-w8-5sw" firstAttribute="trailing" secondItem="vtH-Qt-SbE" secondAttribute="trailing" id="yzo-Re-xN0"/>
+                            <constraint firstItem="Ac8-w8-5sw" firstAttribute="top" secondItem="UKT-BL-suL" secondAttribute="bottom" id="zQa-Uc-LZ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vtH-Qt-SbE"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="月単位" image="calendar_icon_96.png" id="PiE-Jk-rtD"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarCollection" destination="xZR-ts-bL1" id="wyA-gH-YNE"/>
                         <outlet property="headerTitleLabel" destination="0Aj-OS-tj7" id="4nD-Li-4IO"/>
@@ -119,6 +116,5 @@
     </scenes>
     <resources>
         <image name="calendar_icon_96.png" width="32" height="32"/>
-        <image name="money_icon100.png" width="33" height="33"/>
     </resources>
 </document>

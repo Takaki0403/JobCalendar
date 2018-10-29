@@ -1,4 +1,5 @@
 PODS:
+  - CalculateCalendarLogic (0.2.0)
   - Realm (3.11.1):
     - Realm/Headers (= 3.11.1)
   - Realm/Headers (3.11.1)
@@ -6,12 +7,14 @@ PODS:
     - Realm (= 3.11.1)
 
 DEPENDENCIES:
+  - CalculateCalendarLogic
   - RealmSwift
 
 SPEC CHECKSUMS:
+  CalculateCalendarLogic: d7b6bf4ed6c0c21937efb7323c67d09cdb12a1ad
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: 865d94613e54b99aaa4dffd72a1ae4b79d6476cf
+PODFILE CHECKSUM: e9781270b181d12286e034b24b677fe42cf13be2
 
 COCOAPODS: 1.4.0
