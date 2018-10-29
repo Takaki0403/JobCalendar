@@ -69,7 +69,6 @@ class DateManager: NSObject {
         var weekCountInMonth = 0
         let dayCountInMonth = self.getDaysInMonth(year: year, month: month)
         let firstWeekInMonth = self.getFirstWeekInMonth(year: year, month: month)
-        print("firstWeekInMonth: \(firstWeekInMonth)")
         if (dayCountInMonth + firstWeekInMonth) <= 4 * 7 {
             weekCountInMonth = 4
         } else if (dayCountInMonth + firstWeekInMonth) > 5 * 7 {
