@@ -5,7 +5,7 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var headerV: UIView!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var calendarCollection: UICollectionView!
-    @IBOutlet weak var preCalendarCollection: UICollectionView!
+    @IBOutlet weak var nextCalendarCollection: UICollectionView!
     @IBOutlet weak var lastCalendarCollection: UICollectionView!
     @IBOutlet weak var calendarScrollV: UIScrollView!
     @IBOutlet weak var scrollContentV: UIView!
@@ -25,8 +25,8 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         super.viewDidLoad()
         self.calendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
         self.calendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
-        self.preCalendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
-        self.preCalendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
+        self.nextCalendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
+        self.nextCalendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
         self.lastCalendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
         self.lastCalendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
         
@@ -40,20 +40,21 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         
         self.calendarCollection.frame.size = CGSize(width: self.calendarScrollV.frame.width, height: self.calendarScrollV.frame.height)
         self.calendarCollection.frame.origin = CGPoint(x: self.calendarCollection.frame.width, y: 0)
-        self.preCalendarCollection.frame.size = self.calendarCollection.frame.size
+        self.nextCalendarCollection.frame.size = self.calendarCollection.frame.size
         self.lastCalendarCollection.frame.size = self.calendarCollection.frame.size
-        self.preCalendarCollection.frame.origin = CGPoint(x: self.calendarCollection.frame.width * 2, y: 0)
+        self.nextCalendarCollection.frame.origin = CGPoint(x: self.calendarCollection.frame.width * 2, y: 0)
         self.lastCalendarCollection.frame.origin = CGPoint(x: 0, y: 0)
         
         self.calendarScrollV.contentSize = CGSize(width:self.calendarCollection.frame.width * 3, height:self.calendarCollection.frame.height)
         self.scrollContentV.frame = CGRect(x: 0, y: 0, width:self.calendarCollection.frame.width * 3, height:self.calendarCollection.frame.height)
         self.calendarScrollV.delegate = self
+        self.calendarScrollV.contentOffset = CGPoint(x: self.calendarCollection.frame.width, y: 0)
     }
     
     func updateHeaderTitleLabel(components: DateComponents) {
         let firstDayOfMonth = self.cal.date(from: components)
         self.headerTitleLabel.text = self.dateFormatter.string(from: firstDayOfMonth!)
-//        self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
+
     }
     
     @IBAction func headerLeftBtn(_ sender: Any) {
@@ -63,7 +64,7 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.components.month = newYearAndMonth.month
         updateHeaderTitleLabel(components: self.components)
         self.calendarCollection.reloadData()
-        self.preCalendarCollection.reloadData()
+        self.nextCalendarCollection.reloadData()
         self.lastCalendarCollection.reloadData()
     }
     
@@ -74,7 +75,7 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.components.month = newYearAndMonth.month
         updateHeaderTitleLabel(components: self.components)
         self.calendarCollection.reloadData()
-        self.preCalendarCollection.reloadData()
+        self.nextCalendarCollection.reloadData()
         self.lastCalendarCollection.reloadData()
     }
     
@@ -97,7 +98,7 @@ extension CalendarVC {
             switch collectionView {
             case self.lastCalendarCollection:
                 month = self.components.month! - 1
-            case self.preCalendarCollection:
+            case self.nextCalendarCollection:
                 month = self.components.month! + 1
             case self.calendarCollection:
                 month = self.components.month!
@@ -126,7 +127,7 @@ extension CalendarVC {
             self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! - 1))
         case self.calendarCollection:
             self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
-        case self.preCalendarCollection:
+        case self.nextCalendarCollection:
             self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! + 1))
         default:
             break
@@ -146,7 +147,7 @@ extension CalendarVC {
             self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! - 1))
         case self.calendarCollection:
             self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
-        case self.preCalendarCollection:
+        case self.nextCalendarCollection:
             self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! + 1))
         default:
             break
@@ -181,7 +182,8 @@ extension CalendarVC {
 
 extension CalendarVC {
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
         printHeader(fileNameStr: #file, funcNameStr: #function)
         let index = Int((scrollView.contentOffset.x / scrollView.frame.width).rounded())
         let fixX = CGFloat(index) * scrollView.frame.width
@@ -197,7 +199,7 @@ extension CalendarVC {
                 self.components.month = monthAndYear.month
                 self.lastCalendarCollection.reloadData()
                 self.calendarCollection.reloadData()
-                self.preCalendarCollection.reloadData()
+                self.nextCalendarCollection.reloadData()
                 self.updateHeaderTitleLabel(components: self.components)
                 resetContentOffSet()
             } else {
@@ -208,7 +210,7 @@ extension CalendarVC {
                 self.components.month = monthAndYear.month
                 self.lastCalendarCollection.reloadData()
                 self.calendarCollection.reloadData()
-                self.preCalendarCollection.reloadData()
+                self.nextCalendarCollection.reloadData()
                 self.updateHeaderTitleLabel(components: self.components)
                 resetContentOffSet()
             }
@@ -219,12 +221,11 @@ extension CalendarVC {
         printHeader(fileNameStr: #file, funcNameStr: #function)
         lastCalendarCollection.frame = CGRect(x: 0, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
         calendarCollection.frame = CGRect(x: calendarScrollV.frame.size.width, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
-        preCalendarCollection.frame = CGRect(x: calendarScrollV.frame.size.width * 2.0, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
+        nextCalendarCollection.frame = CGRect(x: calendarScrollV.frame.size.width * 2.0, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
         
         let scrollViewDelegate:UIScrollViewDelegate = calendarScrollV.delegate!
         calendarScrollV.delegate = nil
         calendarScrollV.contentOffset = CGPoint(x: calendarScrollV.frame.size.width , y: 0.0);
         calendarScrollV.delegate = scrollViewDelegate
-        
     }
 }

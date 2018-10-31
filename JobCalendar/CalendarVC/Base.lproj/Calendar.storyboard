@@ -110,8 +110,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                                 <connections>
-                                                    <outlet property="dataSource" destination="Dn1-NH-J51" id="rLn-Y0-yRy"/>
-                                                    <outlet property="delegate" destination="Dn1-NH-J51" id="hBS-h6-q6Q"/>
+                                                    <outlet property="dataSource" destination="Dn1-NH-J51" id="lEc-Nx-BDm"/>
+                                                    <outlet property="delegate" destination="Dn1-NH-J51" id="mUz-nR-f3h"/>
                                                 </connections>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZJR-IY-neb">
@@ -181,7 +181,7 @@
                         <outlet property="headerTitleLabel" destination="0Aj-OS-tj7" id="4nD-Li-4IO"/>
                         <outlet property="headerV" destination="Ac8-w8-5sw" id="f4Z-TS-0ml"/>
                         <outlet property="lastCalendarCollection" destination="ZJR-IY-neb" id="mXs-fh-CG7"/>
-                        <outlet property="preCalendarCollection" destination="LXY-rh-gfO" id="6Pl-1P-6Gq"/>
+                        <outlet property="nextCalendarCollection" destination="LXY-rh-gfO" id="3kG-Hv-ia7"/>
                         <outlet property="scrollContentV" destination="8K4-Ns-ta4" id="fDf-6z-vqg"/>
                     </connections>
                 </viewController>
