@@ -65,3 +65,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+func printHeader(fileNameStr: String, funcNameStr: String) {
+    //    if !FlagManager.showLogs { return }
+    let fileName: String = "\(fileNameStr.components(separatedBy: "/").last!.components(separatedBy: ".").first!)"
+    let funcName: String = "\(funcNameStr)"
+    let backSlash: String = {
+        var footer = ""
+        if 70 - fileName.count - funcName.count >= 0 {
+            for _ in 1...75-fileName.count - funcName.count {
+                footer += "/"
+            }
+        } else {
+            footer = "//"
+        }
+        return footer
+    }()
+    Swift.print("// \(fileName) \(funcName) \(backSlash)")
+}

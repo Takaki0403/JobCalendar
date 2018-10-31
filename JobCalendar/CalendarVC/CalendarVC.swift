@@ -48,8 +48,6 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.calendarScrollV.contentSize = CGSize(width:self.calendarCollection.frame.width * 3, height:self.calendarCollection.frame.height)
         self.scrollContentV.frame = CGRect(x: 0, y: 0, width:self.calendarCollection.frame.width * 3, height:self.calendarCollection.frame.height)
         self.calendarScrollV.delegate = self
-        
-        
     }
     
     func updateHeaderTitleLabel(components: DateComponents) {
@@ -64,7 +62,9 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.components.year = newYearAndMonth.year
         self.components.month = newYearAndMonth.month
         updateHeaderTitleLabel(components: self.components)
-        calendarCollection.reloadData()
+        self.calendarCollection.reloadData()
+        self.preCalendarCollection.reloadData()
+        self.lastCalendarCollection.reloadData()
     }
     
     @IBAction func headerRightBtn(_ sender: Any) {
@@ -73,24 +73,14 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.components.year = newYearAndMonth.year
         self.components.month = newYearAndMonth.month
         updateHeaderTitleLabel(components: self.components)
-        calendarCollection.reloadData()
+        self.calendarCollection.reloadData()
+        self.preCalendarCollection.reloadData()
+        self.lastCalendarCollection.reloadData()
     }
     
 }
 
 extension CalendarVC {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var pos:CGFloat  = scrollView.contentOffset.x / scrollView.bounds.size.width
-        var deff:CGFloat = pos - 1.0
-        if abs(deff) >= 1.0 {
-            if (deff > 0) {
-                print("aa")
-            } else {
-                print("bb")
-            }
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
@@ -186,5 +176,55 @@ extension CalendarVC {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("index>> \(indexPath.row)")
         setAddTaskV(superView: self.view)
+    }
+}
+
+extension CalendarVC {
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        printHeader(fileNameStr: #file, funcNameStr: #function)
+        let index = Int((scrollView.contentOffset.x / scrollView.frame.width).rounded())
+        let fixX = CGFloat(index) * scrollView.frame.width
+        self.calendarScrollV.setContentOffset(CGPoint(x:fixX, y:0), animated: false)
+        let pos:CGFloat  = scrollView.contentOffset.x / scrollView.bounds.size.width
+        let deff:CGFloat = pos - 1.0
+        if abs(deff) >= 1.0 {
+            if (deff > 0) {
+                print("pre")
+                self.components.month = self.components.month! + 1
+                let monthAndYear = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
+                self.components.year = monthAndYear.year
+                self.components.month = monthAndYear.month
+                self.lastCalendarCollection.reloadData()
+                self.calendarCollection.reloadData()
+                self.preCalendarCollection.reloadData()
+                self.updateHeaderTitleLabel(components: self.components)
+                resetContentOffSet()
+            } else {
+                print("last")
+                self.components.month = self.components.month! - 1
+                let monthAndYear = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
+                self.components.year = monthAndYear.year
+                self.components.month = monthAndYear.month
+                self.lastCalendarCollection.reloadData()
+                self.calendarCollection.reloadData()
+                self.preCalendarCollection.reloadData()
+                self.updateHeaderTitleLabel(components: self.components)
+                resetContentOffSet()
+            }
+        }
+    }
+    
+    func resetContentOffSet () {
+        printHeader(fileNameStr: #file, funcNameStr: #function)
+        lastCalendarCollection.frame = CGRect(x: 0, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
+        calendarCollection.frame = CGRect(x: calendarScrollV.frame.size.width, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
+        preCalendarCollection.frame = CGRect(x: calendarScrollV.frame.size.width * 2.0, y: 0, width: calendarScrollV.frame.size.width, height: calendarScrollV.frame.size.height)
+        
+        let scrollViewDelegate:UIScrollViewDelegate = calendarScrollV.delegate!
+        calendarScrollV.delegate = nil
+        calendarScrollV.contentOffset = CGPoint(x: calendarScrollV.frame.size.width , y: 0.0);
+        calendarScrollV.delegate = scrollViewDelegate
+        
     }
 }
