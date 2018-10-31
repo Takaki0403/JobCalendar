@@ -182,8 +182,42 @@ extension CalendarVC {
 
 extension CalendarVC {
 
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
 
+        printHeader(fileNameStr: #file, funcNameStr: #function)
+        let index = Int((scrollView.contentOffset.x / scrollView.frame.width).rounded())
+        let fixX = CGFloat(index) * scrollView.frame.width
+        self.calendarScrollV.setContentOffset(CGPoint(x:fixX, y:0), animated: false)
+        let pos:CGFloat  = scrollView.contentOffset.x / scrollView.bounds.size.width
+        let deff:CGFloat = pos - 1.0
+        if abs(deff) >= 1.0 {
+            if (deff > 0) {
+                print("pre")
+                self.components.month = self.components.month! + 1
+                let monthAndYear = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
+                self.components.year = monthAndYear.year
+                self.components.month = monthAndYear.month
+                self.lastCalendarCollection.reloadData()
+                self.calendarCollection.reloadData()
+                self.nextCalendarCollection.reloadData()
+                self.updateHeaderTitleLabel(components: self.components)
+                resetContentOffSet()
+            } else {
+                print("last")
+                self.components.month = self.components.month! - 1
+                let monthAndYear = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
+                self.components.year = monthAndYear.year
+                self.components.month = monthAndYear.month
+                self.lastCalendarCollection.reloadData()
+                self.calendarCollection.reloadData()
+                self.nextCalendarCollection.reloadData()
+                self.updateHeaderTitleLabel(components: self.components)
+                resetContentOffSet()
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         printHeader(fileNameStr: #file, funcNameStr: #function)
         let index = Int((scrollView.contentOffset.x / scrollView.frame.width).rounded())
         let fixX = CGFloat(index) * scrollView.frame.width
