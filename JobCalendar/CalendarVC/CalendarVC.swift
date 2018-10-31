@@ -1,10 +1,14 @@
 import UIKit
 
-class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddTaskVManager {
+class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, AddTaskVManager {
     
     @IBOutlet weak var headerV: UIView!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var calendarCollection: UICollectionView!
+    @IBOutlet weak var preCalendarCollection: UICollectionView!
+    @IBOutlet weak var lastCalendarCollection: UICollectionView!
+    @IBOutlet weak var calendarScrollV: UIScrollView!
+    @IBOutlet weak var scrollContentV: UIView!
     
     let cellMargin: CGFloat = 0.4
     let daysCellHorizonalCount:CGFloat = 7
@@ -19,8 +23,12 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
-        calendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
+        self.calendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
+        self.calendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
+        self.preCalendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
+        self.preCalendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
+        self.lastCalendarCollection.register(UINib(nibName: CalendarCellName.days.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.days.rawValue)
+        self.lastCalendarCollection.register(UINib(nibName: CalendarCellName.week.rawValue, bundle: nil), forCellWithReuseIdentifier: CalendarCellName.week.rawValue)
         
         self.cal.locale = Locale(identifier: "ja")
         self.dateFormatter.locale = Locale(identifier: "ja_JP")
@@ -29,12 +37,25 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         self.components.month = self.cal.component(.month, from: now)
         self.components.day = 1
         self.updateHeaderTitleLabel(components: self.components)
+        
+        self.calendarCollection.frame.size = CGSize(width: self.calendarScrollV.frame.width, height: self.calendarScrollV.frame.height)
+        self.calendarCollection.frame.origin = CGPoint(x: self.calendarCollection.frame.width, y: 0)
+        self.preCalendarCollection.frame.size = self.calendarCollection.frame.size
+        self.lastCalendarCollection.frame.size = self.calendarCollection.frame.size
+        self.preCalendarCollection.frame.origin = CGPoint(x: self.calendarCollection.frame.width * 2, y: 0)
+        self.lastCalendarCollection.frame.origin = CGPoint(x: 0, y: 0)
+        
+        self.calendarScrollV.contentSize = CGSize(width:self.calendarCollection.frame.width * 3, height:self.calendarCollection.frame.height)
+        self.scrollContentV.frame = CGRect(x: 0, y: 0, width:self.calendarCollection.frame.width * 3, height:self.calendarCollection.frame.height)
+        self.calendarScrollV.delegate = self
+        
+        
     }
     
     func updateHeaderTitleLabel(components: DateComponents) {
         let firstDayOfMonth = self.cal.date(from: components)
         self.headerTitleLabel.text = self.dateFormatter.string(from: firstDayOfMonth!)
-        self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
+//        self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
     }
     
     @IBAction func headerLeftBtn(_ sender: Any) {
@@ -59,10 +80,21 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
 
 extension CalendarVC {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var pos:CGFloat  = scrollView.contentOffset.x / scrollView.bounds.size.width
+        var deff:CGFloat = pos - 1.0
+        if abs(deff) >= 1.0 {
+            if (deff > 0) {
+                print("aa")
+            } else {
+                print("bb")
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
 
-        let calendarContents = dateManager.mkDaysInMonth(year: self.components.year!, month: self.components.month!)
         if indexPath.section == 0 {
             let weekCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.week.rawValue, for: indexPath)
@@ -71,10 +103,23 @@ extension CalendarVC {
             }
             return weekCell
         } else {
+            var month = self.components.month
+            switch collectionView {
+            case self.lastCalendarCollection:
+                month = self.components.month! - 1
+            case self.preCalendarCollection:
+                month = self.components.month! + 1
+            case self.calendarCollection:
+                month = self.components.month!
+            default:
+                break
+            }
+            let yearAndMonth = dateManager.decideMonthAndYear(year: self.components.year!, month: month!)
+            let calendarContents = dateManager.mkDaysInMonth(year: yearAndMonth.year, month: yearAndMonth.month)
             let daysCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.days.rawValue, for: indexPath)
             if let daysCell = daysCell as? CalendarDaysCell {
-                daysCell.setupCell(year: components.year!, month: components.month!, date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
+                daysCell.setupCell(year: yearAndMonth.year, month: yearAndMonth.month, date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfPreMonth: calendarContents.daysOfPreMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
             }
             return daysCell
         }
@@ -86,6 +131,16 @@ extension CalendarVC {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case self.lastCalendarCollection:
+            self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! - 1))
+        case self.calendarCollection:
+            self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
+        case self.preCalendarCollection:
+            self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! + 1))
+        default:
+            break
+        }
         if section == 0 {
             return weeks.count
         } else {
@@ -96,6 +151,16 @@ extension CalendarVC {
     // Screenサイズに応じたセルサイズを返す
     // UICollectionViewDelegateFlowLayoutの設定が必要
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch collectionView {
+        case self.lastCalendarCollection:
+            self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! - 1))
+        case self.calendarCollection:
+            self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month!))
+        case self.preCalendarCollection:
+            self.daysCellVerticalCount = CGFloat(dateManager.getWeekCountInMonth(year: components.year!, month: components.month! + 1))
+        default:
+            break
+        }
         let horizonalSize:CGFloat = (self.calendarCollection.frame.width - self.cellMargin * (self.daysCellHorizonalCount - 1)) / self.daysCellHorizonalCount
         if indexPath.section == 0 {
             return CGSize(width: horizonalSize.rounded(.down), height: self.weekVerticalSize)

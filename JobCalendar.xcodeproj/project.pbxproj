@@ -15,6 +15,7 @@
 		006C987E21874CB6003B0244 /* colorBlackWaiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987A21874CB5003B0244 /* colorBlackWaiting@2x.png */; };
 		006C987F21874CB6003B0244 /* colorWhiteSeted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987B21874CB6003B0244 /* colorWhiteSeted@2x.png */; };
 		006C988021874CB6003B0244 /* colorBlackSeted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006C987C21874CB6003B0244 /* colorBlackSeted@2x.png */; };
+		006C98842189320B003B0244 /* CalendarScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C98832189320B003B0244 /* CalendarScrollManager.swift */; };
 		00D359902181E29700C2FB96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3598F2181E29700C2FB96 /* AppDelegate.swift */; };
 		00D359922181E29700C2FB96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D359912181E29700C2FB96 /* ViewController.swift */; };
 		00D359952181E29700C2FB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D359932181E29700C2FB96 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		006C987A21874CB5003B0244 /* colorBlackWaiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorBlackWaiting@2x.png"; sourceTree = "<group>"; };
 		006C987B21874CB6003B0244 /* colorWhiteSeted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorWhiteSeted@2x.png"; sourceTree = "<group>"; };
 		006C987C21874CB6003B0244 /* colorBlackSeted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorBlackSeted@2x.png"; sourceTree = "<group>"; };
+		006C98832189320B003B0244 /* CalendarScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScrollManager.swift; sourceTree = "<group>"; };
 		00D3598C2181E29700C2FB96 /* JobCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D3598F2181E29700C2FB96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00D359912181E29700C2FB96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -232,9 +234,10 @@
 				00D359DA2182044700C2FB96 /* CalendarDaysCell.xib */,
 				00D359DD2182A6CD00C2FB96 /* CalendarWeekCell.swift */,
 				00D359DE2182A6CD00C2FB96 /* CalendarWeekCell.xib */,
-				000E53672183024300A76CD2 /* DateManager.swift */,
 				00E2D8472185DFF70049D48F /* AddTaskV.swift */,
 				00E2D8432185DF550049D48F /* AddTaskV.xib */,
+				000E53672183024300A76CD2 /* DateManager.swift */,
+				006C98832189320B003B0244 /* CalendarScrollManager.swift */,
 			);
 			path = CalendarVC;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				00D359902181E29700C2FB96 /* AppDelegate.swift in Sources */,
 				00E2D83C2185B9DB0049D48F /* RealmManager.swift in Sources */,
 				00D359BF2181E6BB00C2FB96 /* CalendarVC.swift in Sources */,
+				006C98842189320B003B0244 /* CalendarScrollManager.swift in Sources */,
 				00D359DF2182A6CD00C2FB96 /* CalendarWeekCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
