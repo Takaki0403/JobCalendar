@@ -22,7 +22,7 @@ class DateManager: NSObject {
         return firstWeek! - 1
     }
     
-    func mkDaysInMonth(year: Int, month: Int) -> (daysInMonth: [Int], daysOfPreMonth: Int, daysOfLastMonth: Int) {
+    func mkDaysInMonth(year: Int, month: Int) -> (daysInMonth: [Int], daysOfNextMonth: Int, daysOfLastMonth: Int) {
         var daysInMonth: [Int] = []
         let dayCountInMonth = self.getDaysInMonth(year: year, month: month)
         var dayCountInLastMonth: Int = 0

@@ -13,17 +13,17 @@ class CalendarDaysCell: UICollectionViewCell {
         self.backV.layer.borderWidth = 0.5
     }
     
-    func setupCell(year: Int, month: Int, date: String, indexPath: IndexPath, daysOfPreMonth: Int, daysOfLastMonth: Int) {
+    func setupCell(year: Int, month: Int, date: String, indexPath: IndexPath, daysOfNextMonth: Int, daysOfLastMonth: Int) {
         let calculateCalendarLogic = CalculateCalendarLogic()
         let dateManager = DateManager()
-        let preYAndM = dateManager.decideMonthAndYear(year: year, month: month - 1)
+        let nextYAndM = dateManager.decideMonthAndYear(year: year, month: month - 1)
         let lastYAndM = dateManager.decideMonthAndYear(year: year, month: month + 1)
         
         self.dateLabel.text = date
         
         switch indexPath.row {
-        case 0..<daysOfPreMonth:
-            if (indexPath.row % 7 == 0) || calculateCalendarLogic.judgeJapaneseHoliday(year: preYAndM.year, month: preYAndM.month, day: Int(date)!) {
+        case 0..<daysOfNextMonth:
+            if (indexPath.row % 7 == 0) || calculateCalendarLogic.judgeJapaneseHoliday(year: nextYAndM.year, month: nextYAndM.month, day: Int(date)!) {
                 self.dateLabel.textColor = UIColor.lightRed()
             } else if (indexPath.row % 7 == 6) {
                 self.dateLabel.textColor = UIColor.lightBlue()
@@ -38,7 +38,7 @@ class CalendarDaysCell: UICollectionViewCell {
             } else {
                 self.dateLabel.textColor = UIColor.gray
             }
-        case daysOfPreMonth..<daysOfLastMonth:
+        case daysOfNextMonth..<daysOfLastMonth:
             if (indexPath.row % 7 == 0) || calculateCalendarLogic.judgeJapaneseHoliday(year: year, month: month, day: Int(date)!){
                 self.dateLabel.textColor = UIColor.red
             } else if (indexPath.row % 7 == 6) {
