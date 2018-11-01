@@ -27,32 +27,54 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-2f-YJT">
-                                        <rect key="frame" x="5" y="7" width="46" height="30"/>
+                                        <rect key="frame" x="268" y="5" width="46" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="uQK-66-xBQ"/>
+                                        </constraints>
                                         <state key="normal" title="＜前月"/>
                                         <connections>
                                             <action selector="headerLeftBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="aOQ-Kc-Sxh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dk-ER-a7b">
-                                        <rect key="frame" x="324" y="7" width="46" height="30"/>
+                                        <rect key="frame" x="324" y="5" width="46" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="HpQ-sI-xUu"/>
+                                        </constraints>
                                         <state key="normal" title="次月＞"/>
                                         <connections>
                                             <action selector="headerRightBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="k07-iW-udu"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0P-0C-USa">
+                                        <rect key="frame" x="17" y="7" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addTaskBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="leG-PN-fKi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cm6-ca-Q0b">
+                                        <rect key="frame" x="55" y="7" width="75" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="NowMonth"/>
+                                        <connections>
+                                            <action selector="nowMonthBtn:" destination="Dn1-NH-J51" eventType="touchUpInside" id="3bc-Ap-XZa"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.94901960784313721" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="leading" secondItem="Ac8-w8-5sw" secondAttribute="leading" constant="5" id="0Cc-ls-reH"/>
                                     <constraint firstAttribute="height" constant="44" id="1mi-Mz-0JY"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Dk-ER-a7b" secondAttribute="trailing" constant="5" id="FXa-hL-Dej"/>
-                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Aj-OS-tj7" secondAttribute="trailing" constant="8" symbolic="YES" id="PEa-Ij-zzE"/>
-                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="U99-Q6-1aY"/>
+                                    <constraint firstAttribute="bottom" secondItem="d2f-2f-YJT" secondAttribute="bottom" constant="5" id="FHw-Vg-8if"/>
+                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="top" constant="5" id="GID-KX-C8N"/>
+                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="top" constant="5" id="Odx-JY-cJe"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Dk-ER-a7b" secondAttribute="trailing" constant="5" id="Q5H-aY-quh"/>
                                     <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerY" secondItem="Ac8-w8-5sw" secondAttribute="centerY" id="dea-Mi-PLf"/>
-                                    <constraint firstItem="d2f-2f-YJT" firstAttribute="centerY" secondItem="0Aj-OS-tj7" secondAttribute="centerY" id="gRx-sD-tAL"/>
+                                    <constraint firstItem="6Dk-ER-a7b" firstAttribute="leading" secondItem="d2f-2f-YJT" secondAttribute="trailing" constant="10" id="jS7-Wt-9dS"/>
                                     <constraint firstItem="0Aj-OS-tj7" firstAttribute="centerX" secondItem="Ac8-w8-5sw" secondAttribute="centerX" id="mj5-m4-8pZ"/>
-                                    <constraint firstItem="0Aj-OS-tj7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d2f-2f-YJT" secondAttribute="trailing" constant="8" symbolic="YES" id="tHf-gZ-hrL"/>
                                     <constraint firstItem="0Aj-OS-tj7" firstAttribute="top" secondItem="Ac8-w8-5sw" secondAttribute="top" constant="5" id="u9O-ZZ-2Xq"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Dk-ER-a7b" secondAttribute="bottom" constant="5" id="wQG-G5-gnx"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWJ-Ed-U8v">

@@ -7,8 +7,12 @@ class CalendarDaysCell: UICollectionViewCell {
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var cal = Calendar.current
+    var today = 0
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.cal.locale = Locale(identifier: "ja")
+        self.today = self.cal.component(.day, from: Date())
         self.backV.layer.borderColor = UIColor.black.cgColor
         self.backV.layer.borderWidth = 0.5
     }
@@ -48,6 +52,11 @@ class CalendarDaysCell: UICollectionViewCell {
             }
         default:
             break
+        }
+        
+        if indexPath.row == daysOfNextMonth + today -  1 && cal.component(.year, from: Date()) == year && cal.component(.month, from: Date()) == month {
+            self.dateLabel.text = "\(date) Today"
+            self.dateLabel.backgroundColor = UIColor.cyan
         }
     }
 

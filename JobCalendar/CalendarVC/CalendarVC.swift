@@ -34,7 +34,7 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
         
         self.cal.locale = Locale(identifier: "ja")
         self.dateFormatter.locale = Locale(identifier: "ja_JP")
-        self.dateFormatter.dateFormat = "yyyy年M月"
+        self.dateFormatter.dateFormat = "yyyy/M"
         self.components.year = self.cal.component(.year, from: now)
         self.components.month = self.cal.component(.month, from: now)
         self.components.day = 1
@@ -59,6 +59,17 @@ class CalendarVC: UIViewController, UICollectionViewDataSource, UICollectionView
 
     }
     
+    @IBAction func nowMonthBtn(_ sender: Any) {
+        self.components.month = self.cal.component(.month, from: now)
+        self.components.year = self.cal.component(.year, from: now)
+        updateHeaderTitleLabel(components: self.components)
+        self.calendarCollection.reloadData()
+        self.nextCalendarCollection.reloadData()
+        self.lastCalendarCollection.reloadData()
+    }
+    
+    @IBAction func addTaskBtn(_ sender: Any) {
+    }
     @IBAction func headerLeftBtn(_ sender: Any) {
         self.components.month = self.components.month! - 1
         let newYearAndMonth = dateManager.decideMonthAndYear(year: self.components.year!, month: self.components.month!)
@@ -87,7 +98,7 @@ extension CalendarVC {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-
+        
         if indexPath.section == 0 {
             let weekCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.week.rawValue, for: indexPath)
@@ -112,8 +123,9 @@ extension CalendarVC {
             let daysCell:UICollectionViewCell =
                 collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCellName.days.rawValue, for: indexPath)
             if let daysCell = daysCell as? CalendarDaysCell {
-                daysCell.setupCell(year: yearAndMonth.year, month: yearAndMonth.month, date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfNextMonth: calendarContents.daysOfNextMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
                 daysCell.backV.backgroundColor = UIColor.white
+                daysCell.dateLabel.backgroundColor = UIColor.white
+                daysCell.setupCell(year: yearAndMonth.year, month: yearAndMonth.month, date: String(calendarContents.daysInMonth[indexPath.row]), indexPath: indexPath, daysOfNextMonth: calendarContents.daysOfNextMonth, daysOfLastMonth: calendarContents.daysOfLastMonth)
             }
             return daysCell
         }

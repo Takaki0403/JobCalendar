@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setting Realm
         RealmManager.realmConfig()
         sleep(2);
-        
         return true
     }
 
